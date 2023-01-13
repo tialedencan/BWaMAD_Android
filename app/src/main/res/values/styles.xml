@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<style name="TextAppearance.AppCompat.Widget.ActionBar.Title." parent="android:style/TextAppearance">
+        <item name="android:fontFamily">monospace</item>
+    </style>-->
+    <style name="CustomActionBarTitle" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">monospace</item>
+    </style>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="actionBarTheme">@style/CustomActionBarTitle</item>
+        <item name="android:actionBarTheme">@style/CustomActionBarTitle</item>
+    </style>
+</resources>

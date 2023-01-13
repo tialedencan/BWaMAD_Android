@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Who said that - Marvel</string>
+    <string name="start_btn">Start game</string>
+    <string name="nickname">Enter your nickname</string>
+    <string name="input">Enter your answer</string>
+    <string name="check_btn">Check image button </string>
+    <string name="hint_btn">Hint</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="finalAnswer_btn">Check the final answer</string>
+</resources>
