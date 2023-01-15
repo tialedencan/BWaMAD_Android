@@ -70,7 +70,7 @@ class GameFragment : Fragment() {
                 Toast.makeText(view.context, "+5", Toast.LENGTH_LONG).show()
 
             }
-            else{ //crasha se kad ponovno pozovem enque akad je bio čistak (bez if elsa) onda nije
+            else{
                 Toast.makeText(view.context, "Correct answer: " + speaker, Toast.LENGTH_LONG).show()
             }
 

@@ -13,6 +13,7 @@
         android:layout_marginTop="16dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:typeface="monospace"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +26,7 @@
         android:layout_marginEnd="140dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
         android:typeface="monospace"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

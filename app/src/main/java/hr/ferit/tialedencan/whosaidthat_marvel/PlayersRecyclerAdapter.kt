@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 
 class PlayersRecyclerAdapter(
     val players:ArrayList<Player>,
-    //val listener: ContentListener
 ):RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -33,21 +32,17 @@ class PlayersRecyclerAdapter(
         notifyItemRangeChanged(players.indexOf(player),players.size)
     }
 
-    class PlayerViewHolder(val view:View):RecyclerView.ViewHolder(view){
+    class PlayerViewHolder(view:View):RecyclerView.ViewHolder(view){
         private var nickname = view.findViewById<TextView>(R.id.tvPlayer)
         private val points=view.findViewById<TextView>(R.id.tvPoints)
-        //private var button = view.findViewById<Button>(R.id.button)
+
         fun bind( player:Player) {
             nickname.text = player.nickname
             points.text = player.points.toString()
-          /*  button.setOnClickListener {
-                listener.onShowFragment(index,player)
-            }*/
+
         }
     }
-  /*  interface ContentListener{
-        fun onShowFragment(index:Int, player:Player)
-    }*/
+
 }
 
 

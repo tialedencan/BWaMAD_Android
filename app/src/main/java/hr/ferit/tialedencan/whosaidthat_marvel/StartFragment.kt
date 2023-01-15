@@ -22,14 +22,14 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         val view=inflater.inflate(R.layout.fragment_start, container, false)
-        val communicator = activity as Communicator
+        communicator = activity as Communicator
 
         val btnStart = view.findViewById<Button>(R.id.btnStart)
         btnStart.setOnClickListener{
             val player = view.findViewById<EditText>(R.id.etPlayerNickname)
-            //omoguci spremanje podataka u bazu s vrijednosti bodova =0 ili ako igrac vec postoji samo uci u igru
+
             val main = MainActivity()
             val database = main.db.collection("players")
             var guessPlayer : Player
@@ -54,44 +54,6 @@ class StartFragment : Fragment() {
                     }
                 }
             })
-          /*  if(database.document(player.text.toString()).get() != null){ //postoji
-                database.document(player.text.toString())
-                    .get()
-                    .addOnSuccessListener { result->
-                      guessPlayer = result.toObject(Player::class.java)!!
-                        communicator.playGame(guessPlayer.nickname.toString())
-                    }
-            }
-            else{
-                guessPlayer = Player(
-                    player.text.toString(),
-                    0,
-                )
-                database.document(player.text.toString()).set(guessPlayer)
-                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
-                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
-                communicator.playGame(guessPlayer.nickname.toString())
-            }*/
-
-           // database.orderBy("nickname").equals(player.text.toString())
-           /*  database.get().addOnSuccessListener { result->
-                 for(data in result.documents) {
-                     val p = data.toObject(Player::class.java)
-                     if (p!= null && p.nickname == player.text.toString()){
-                            existingPlayer=true
-                            guessPlayer = p  //moram drugacije to riješiti
-                     }
-                     if(existingPlayer)break
-
-                 }
-             }
-            if(!existingPlayer){
-               val doc = database.document()
-               guessPlayer =
-                doc.set(guessPlayer)
-            }
-*/
-
         }
         return view
     }

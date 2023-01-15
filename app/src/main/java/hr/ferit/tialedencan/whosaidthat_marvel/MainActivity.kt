@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity(), Communicator{
     }
 
     override fun playGame(player:String) {
-        //dodati za bazu kad upise osoba nadimak ( u start fragmnetu) prosljedi se ovdje i spremi
         val gameFragment=getFragmentWithPlayerName(GameFragment(), player)
         replaceFragment(gameFragment)
     }

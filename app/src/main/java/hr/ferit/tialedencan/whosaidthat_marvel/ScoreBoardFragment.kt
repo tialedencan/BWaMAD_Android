@@ -18,9 +18,8 @@ class ScoreBoardFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_score_board, container, false)
 
-        //treba mi nekakav content kada dođem na fragment da popuni recycler view podacima iz baze (bez ikakvog pritiska gumba)
         communicator = activity as Communicator
-
+        
         val recyclerView = view.findViewById<RecyclerView>(R.id.playersList)
         communicator.contactDatabase(recyclerView)
 
