@@ -26,11 +26,10 @@ class GameFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_game, container, false)
         val request = ServiceBuilder.buildService(MarvelEndpoint::class.java)
 
-        val key="3717278bf1msh9f6f7d4f79524bap11334ajsn5087c27cdd2d"
+        val key=context?.getString(R.string.rapidapi_api_key).toString()
         val host ="marvel-quote-api.p.rapidapi.com"
         val call = request.getQuote(key,host)
         var speaker = ""
-        var movieTitle = ""
 
         call.enqueue(object : Callback<Marvel> {
             override fun onResponse(
@@ -41,10 +40,8 @@ class GameFragment : Fragment() {
                     val quote = view.findViewById<TextView>(R.id.tvQuote)
                     quote.setText(response.body()!!.Quote)
 
-                    //correct answers
+                    //correct answer
                     speaker = response.body()!!.Speaker
-                    movieTitle = response.body()!!.Title
-
                 }
             }
 

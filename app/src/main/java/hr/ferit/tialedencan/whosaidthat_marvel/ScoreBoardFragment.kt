@@ -19,7 +19,7 @@ class ScoreBoardFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_score_board, container, false)
 
         communicator = activity as Communicator
-        
+
         val recyclerView = view.findViewById<RecyclerView>(R.id.playersList)
         communicator.contactDatabase(recyclerView)
 
