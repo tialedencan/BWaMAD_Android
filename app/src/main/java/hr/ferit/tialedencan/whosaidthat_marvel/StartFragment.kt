@@ -24,7 +24,7 @@ class StartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view=inflater.inflate(R.layout.fragment_start, container, false)
+        val view = inflater.inflate(R.layout.fragment_start, container, false)
         communicator = activity as Communicator
 
         val btnStart = view.findViewById<Button>(R.id.btnStart)
@@ -36,29 +36,23 @@ class StartFragment : Fragment() {
             var guessPlayer : Player
             if(player.text.toString() != "") {
                 database.document(player.text.toString())
-                    .addSnapshotListener(object : EventListener<DocumentSnapshot?> {
-
-                        override fun onEvent(
-                            value: DocumentSnapshot?,
-                            error: FirebaseFirestoreException?
-                        ) {
-                            if (value != null) {
-                                if (value.exists()) {
-                                    //update
-                                    guessPlayer = value.toObject(Player::class.java)!!
-                                    communicator.playGame(guessPlayer.nickname.toString())
-                                } else {
-                                    //Insert
-                                    guessPlayer = Player(
-                                        player.text.toString(),
-                                        0,
-                                    )
-                                    database.document(player.text.toString()).set(guessPlayer)
-                                    communicator.playGame(guessPlayer.nickname.toString())
-                                }
+                    .addSnapshotListener { value, error ->
+                        if (value != null) {
+                            if (value.exists()) {
+                                //update
+                                guessPlayer = value.toObject(Player::class.java)!!
+                                communicator.playGame(guessPlayer.nickname.toString())
+                            } else {
+                                //Insert
+                                guessPlayer = Player(
+                                    player.text.toString(),
+                                    0,
+                                )
+                                database.document(player.text.toString()).set(guessPlayer)
+                                communicator.playGame(guessPlayer.nickname.toString())
                             }
                         }
-                    })
+                    }
             }else{
                 Toast.makeText(this.context,"You can't start the game without entering your name!",Toast.LENGTH_LONG).show()
             }

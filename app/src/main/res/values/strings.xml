@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Who said that - Marvel</string>
     <string name="start_btn">Start game</string>
+    <string name="characters_img">Marvel characters</string>
     <string name="nickname">Enter your nickname</string>
     <string name="input">Enter your answer</string>
     <string name="check_btn">Check image button </string>

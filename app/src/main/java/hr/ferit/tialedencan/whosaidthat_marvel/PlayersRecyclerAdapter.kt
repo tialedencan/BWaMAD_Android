@@ -26,15 +26,9 @@ class PlayersRecyclerAdapter(
        return players.size
     }
 
-    fun addItem(player: Player){
-        players.add(player)
-        notifyItemInserted(players.indexOf(player))
-        notifyItemRangeChanged(players.indexOf(player),players.size)
-    }
-
     class PlayerViewHolder(view:View):RecyclerView.ViewHolder(view){
         private var nickname = view.findViewById<TextView>(R.id.tvPlayer)
-        private val points=view.findViewById<TextView>(R.id.tvPoints)
+        private val points = view.findViewById<TextView>(R.id.tvPoints)
 
         fun bind( player:Player) {
             nickname.text = player.nickname

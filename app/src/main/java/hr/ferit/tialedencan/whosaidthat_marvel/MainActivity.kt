@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity(), Communicator{
 
     }
     override fun replaceFragment(fragment: Fragment){
-        val fragmentManager=supportFragmentManager
-        val fragmentTransaction=fragmentManager.beginTransaction()
+        val fragmentManager = supportFragmentManager
+        val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.replace(R.id.fragment_container,fragment)
         fragmentTransaction.commit()
     }
@@ -46,13 +46,12 @@ class MainActivity : AppCompatActivity(), Communicator{
                 for(data in result.documents){
                     val player = data.toObject(Player::class.java)
                     if(player != null){
-                        //player.id = data.id
                         players.add(player)
                     }
                 }
                 recyclerAdapter = PlayersRecyclerAdapter(players)
                 recyclerView.apply {
-                    layoutManager=LinearLayoutManager(this@MainActivity)
+                    layoutManager = LinearLayoutManager(this@MainActivity)
                     adapter = recyclerAdapter
                 }
             }
@@ -71,7 +70,7 @@ class MainActivity : AppCompatActivity(), Communicator{
     }
 
     override fun playGame(player:String) {
-        val gameFragment=getFragmentWithPlayerName(GameFragment(), player)
+        val gameFragment = getFragmentWithPlayerName(GameFragment(), player)
         replaceFragment(gameFragment)
     }
 
